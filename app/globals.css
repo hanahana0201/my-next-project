@@ -38,12 +38,3 @@ code {
     inconsolata, monospace;
 }
 
-a {
-  color: inherit;
-  text-emphasis: none;
-}
-
-ol,
-ul {
-  list-style: none;
-}

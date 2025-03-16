@@ -1,5 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image';
 
+import Buttonlink from '@/app/_components/Buttonlink';
 type News = {
   id: string;
   title: string;
@@ -15,31 +16,31 @@ const data: {
 } = {
   contents: [
     {
-      id: "1",
-      title: "渋谷にオフィスを移転しました",
+      id: '1',
+      title: '渋谷にオフィスを移転しました',
       category: {
-        name: "更新情報",
+        name: '更新情報',
       },
-      publishedAt: "2023/05/19",
-      createdAt: "2023/05/19",
+      publishedAt: '2023/05/19',
+      createdAt: '2023/05/19',
     },
     {
-      id: "2",
-      title: "当社CEOが業界リーダーTOP30に選出されました",
+      id: '2',
+      title: '当社CEOが業界リーダーTOP30に選出されました',
       category: {
-        name: "更新情報",
+        name: '更新情報',
       },
-      publishedAt: "2023/05/19",
-      createdAt: "2023/05/19",
+      publishedAt: '2023/05/19',
+      createdAt: '2023/05/19',
     },
     {
-      id: "3",
-      title: "テストの記事です",
+      id: '3',
+      title: 'テストの記事です',
       category: {
-        name: "更新情報",
+        name: '更新情報',
       },
-      publishedAt: "2023/04/19",
-      createdAt: "2023/04/19",
+      publishedAt: '2023/04/19',
+      createdAt: '2023/04/19',
     },
   ],
 };
@@ -106,6 +107,9 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <div className="absolute -right-10 -bottom-10 max-sm:relative max-sm:right-auto max-sm:bottom-auto max-sm:mt-4">
+          <Buttonlink href="/news">もっとみる</Buttonlink>
+        </div>
       </section>
     </>
   );
