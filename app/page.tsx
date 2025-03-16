@@ -1,15 +1,8 @@
 import Image from 'next/image';
 
+import NewsList from '@/app/_components/NewsList';
 import Buttonlink from '@/app/_components/Buttonlink';
-type News = {
-  id: string;
-  title: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  createdAt: string;
-};
+import { News } from '@/app/_libs/microcms';
 
 const data: {
   contents: News[];
@@ -69,44 +62,7 @@ export default function Home() {
       </section>
       <section className="relative bg-white w-210 -mt-10 mx-auto mb-0 py-6 px-10 rounded-(--border-radius) max-lg:w-[calc(100%-160px)] max-sm:w-[calc(100%-32px)] max-sm:px-4 max-sm:py-6">
         <h2 className="text-2xl font-bold">News</h2>
-        <ul>
-          {slicedDate.map((article) => (
-            <li
-              className="border-b border-b-border-ligth last:border-b-0"
-              key={article.id}
-            >
-              <div className="flex items-start gap-10 py-6 px-0">
-                <Image
-                  className="w-50 h-auto rounded-(--border-radius)"
-                  src="/no-image.png"
-                  alt="No Image"
-                  width={1200}
-                  height={630}
-                />
-                <dl>
-                  <dt className="text-[1.1rem] font-bold mb-2">
-                    {article.title}
-                  </dt>
-                  <dd className="flex items-center gap-4">
-                    <span className="bg-bg-sub px-1 py-3 rounded-(--border-radius) whitespace-nowrap text-base">
-                      {article.category.name}
-                    </span>
-                    <span className="flex items-center gap-2 mx-[0.8rem] my-0 text-base">
-                      <Image
-                        src="/clock.svg"
-                        alt=""
-                        width={16}
-                        height={16}
-                        priority
-                      />
-                      {article.publishedAt}
-                    </span>
-                  </dd>
-                </dl>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <NewsList news={slicedDate} />
         <div className="absolute -right-10 -bottom-10 max-sm:relative max-sm:right-auto max-sm:bottom-auto max-sm:mt-4">
           <Buttonlink href="/news">もっとみる</Buttonlink>
         </div>
