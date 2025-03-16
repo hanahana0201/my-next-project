@@ -1,4 +1,6 @@
 import Image from 'next/image';
+
+import Category from '../Category';
 import { News } from '@/app/_libs/microcms';
 
 type Props = {
@@ -27,9 +29,7 @@ export default function NewsList({ news }: Props) {
             <dl>
               <dt className="text-[1.1rem] font-bold mb-2">{article.title}</dt>
               <dd className="flex items-center gap-4">
-                <span className="bg-bg-sub px-1 py-3 rounded-(--border-radius) whitespace-nowrap text-base">
-                  {article.category.name}
-                </span>
+                <Category category={article.category} />
                 <span className="flex items-center gap-2 mx-[0.8rem] my-0 text-base">
                   <Image
                     src="/clock.svg"
