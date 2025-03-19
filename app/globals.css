@@ -18,6 +18,7 @@
   --color-current: #eee;
   --color-button-primary: #333;
   --border-radius: 4px;
+  --font-family-systemui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
 }
 
@@ -37,4 +38,3 @@ code {
   font-family: menlo,
     inconsolata, monospace;
 }
-

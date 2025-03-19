@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import Category from "../Category";
 import Date from "../Date";
@@ -19,7 +20,10 @@ export default function NewsList({ news }: Props) {
           className="border-b border-b-border-ligth last:border-b-0"
           key={article.id}
         >
-          <div className="flex items-start gap-10 py-6 px-0">
+          <Link
+            href={`/news/${article.id}`}
+            className="flex items-start gap-10 py-6 px-0"
+          >
             <Image
               className="w-50 h-auto rounded-(--border-radius)"
               src="/no-image.png"
@@ -34,7 +38,7 @@ export default function NewsList({ news }: Props) {
                 <Date date={article.publishedAt ?? article.createdAt} />
               </dd>
             </dl>
-          </div>
+          </Link>
         </li>
       ))}
     </ul>
