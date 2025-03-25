@@ -24,13 +24,24 @@ export default function NewsList({ news }: Props) {
             href={`/news/${article.id}`}
             className="flex items-start gap-10 py-6 px-0"
           >
-            <Image
-              className="w-50 h-auto rounded-(--border-radius)"
-              src="/no-image.png"
-              alt="No Image"
-              width={1200}
-              height={630}
-            />
+            {article.thumbnail ? (
+              <Image
+                className="w-50 h-auto rounded-(--border-radius)"
+                src={article.thumbnail.url}
+                alt=""
+                width={article.thumbnail.width}
+                height={article.thumbnail.height}
+              />
+            ) : (
+              <Image
+                className="w-50 h-auto rounded-(--border-radius)"
+                src="/no-image.png"
+                alt="No Image"
+                width={1200}
+                height={630}
+              />
+            )}
+
             <dl>
               <dt className="text-[1.1rem] font-bold mb-2">{article.title}</dt>
               <dd className="flex items-center gap-4">

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { getMembersList } from "@/app/_libs/microcms";
+import { MEMBERS_LIST_LIMIT } from "@/app/_constants";
 
 export default async function Page() {
-  const data = await getMembersList({limit: 100});
+  const data = await getMembersList({ limit: MEMBERS_LIST_LIMIT });
   return (
     <div>
       {data.contents.length === 0 ? (

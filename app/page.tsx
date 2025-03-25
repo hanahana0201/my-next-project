@@ -1,45 +1,13 @@
-import Image from 'next/image';
+import Image from "next/image";
+import { getNewsList } from "@/app/_libs/microcms";
+import { TOP_NEWS_LIMIT } from "@/app/_constants";
+import NewsList from "@/app/_components/NewsList";
+import Buttonlink from "@/app/_components/Buttonlink";
 
-import NewsList from '@/app/_components/NewsList';
-import Buttonlink from '@/app/_components/Buttonlink';
-import { News } from '@/app/_libs/microcms';
-
-const data: {
-  contents: News[];
-} = {
-  contents: [
-    {
-      id: '1',
-      title: '渋谷にオフィスを移転しました',
-      category: {
-        name: '更新情報',
-      },
-      publishedAt: '2023/05/19',
-      createdAt: '2023/05/19',
-    },
-    {
-      id: '2',
-      title: '当社CEOが業界リーダーTOP30に選出されました',
-      category: {
-        name: '更新情報',
-      },
-      publishedAt: '2023/05/19',
-      createdAt: '2023/05/19',
-    },
-    {
-      id: '3',
-      title: 'テストの記事です',
-      category: {
-        name: '更新情報',
-      },
-      publishedAt: '2023/04/19',
-      createdAt: '2023/04/19',
-    },
-  ],
-};
-
-export default function Home() {
-  const slicedDate = data.contents.slice(0, 2);
+export default async function Home() {
+  const data = await getNewsList({
+    limit: TOP_NEWS_LIMIT,
+  });
 
   return (
     <>
@@ -62,7 +30,7 @@ export default function Home() {
       </section>
       <section className="relative bg-white w-210 -mt-10 mx-auto mb-0 py-6 px-10 rounded-(--border-radius) max-lg:w-[calc(100%-160px)] max-sm:w-[calc(100%-32px)] max-sm:px-4 max-sm:py-6">
         <h2 className="text-2xl font-bold">News</h2>
-        <NewsList news={slicedDate} />
+        <NewsList news={data.contents} />
         <div className="absolute -right-10 -bottom-10 max-sm:relative max-sm:right-auto max-sm:bottom-auto max-sm:mt-4">
           <Buttonlink href="/news">もっとみる</Buttonlink>
         </div>
