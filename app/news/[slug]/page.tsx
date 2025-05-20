@@ -15,13 +15,8 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <Article data={data} />
-      <div>
-        <ButtonLink
-          href="/news"
-          className="mt-8 inline-block rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        >
-          ニュース一覧へ
-        </ButtonLink>
+      <div className="flex justify-end border-t border-t-border mt-20 pt-10">
+        <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
       </div>
     </>
   );
